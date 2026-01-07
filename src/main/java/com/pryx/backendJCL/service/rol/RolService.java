@@ -5,10 +5,9 @@ import com.pryx.backendJCL.model.Rol;
 import com.pryx.backendJCL.repository.RolRepository;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
-public class RolService implements IRolService{
+public class RolService implements IRolService {
     private final RolRepository rolRepository;
 
     public RolService(RolRepository rolRepository) {

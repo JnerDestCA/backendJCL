@@ -9,10 +9,9 @@ import com.pryx.backendJCL.request.AddEmpleadoRequest;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
-public class EmpleadoService implements IEmpleadoService{
+public class EmpleadoService implements IEmpleadoService {
     private final EmpleadoRepository empleadoRepository;
     private final RolRepository rolRepository;
 
@@ -24,7 +23,7 @@ public class EmpleadoService implements IEmpleadoService{
     @Override
     public Empleado addEmpleado(AddEmpleadoRequest request) {
         Set<Rol> rolesFound = rolRepository.findByNombreRol(request.getRoles());
-        return empleadoRepository.save(createEmpleado(request,rolesFound));
+        return empleadoRepository.save(createEmpleado(request, rolesFound));
 
     }
 
@@ -39,20 +38,19 @@ public class EmpleadoService implements IEmpleadoService{
                 new Date(),
                 request.getUsername(),
                 request.getPassword(),
-                roles
-        );
+                roles);
     }
 
     @Override
     public Empleado getEmpleadoByUsername(String username) {
         return empleadoRepository.findByUsername(username)
-                .orElseThrow(()->new EmpleadoNotFoundException("Empleado no encontrado"));
+                .orElseThrow(() -> new EmpleadoNotFoundException("Empleado no encontrado"));
     }
 
     @Override
     public Empleado getEmpleadoById(Long id) {
         return empleadoRepository.findById(id)
-                .orElseThrow(()->new EmpleadoNotFoundException("Empleado no encontrado"));
+                .orElseThrow(() -> new EmpleadoNotFoundException("Empleado no encontrado"));
     }
 
     @Override
