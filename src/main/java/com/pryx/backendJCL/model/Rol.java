@@ -19,10 +19,10 @@ public class Rol implements GrantedAuthority {
     private Long id;
 
     @Column(unique = true, nullable = false)
-    private String nombre_rol;
+    private String nombreRol;
 
     @Override
     public @Nullable String getAuthority() {
-        return nombre_rol;
+        return nombreRol;
     }
 }

@@ -22,7 +22,7 @@ public class EmpleadoService implements IEmpleadoService {
 
     @Override
     public Empleado addEmpleado(AddEmpleadoRequest request) {
-        Set<Rol> rolesFound = rolRepository.findByNombreRol(request.getRoles());
+        Set<Rol> rolesFound = rolRepository.findByNombreRolIn(request.getRoles());
         return empleadoRepository.save(createEmpleado(request, rolesFound));
 
     }

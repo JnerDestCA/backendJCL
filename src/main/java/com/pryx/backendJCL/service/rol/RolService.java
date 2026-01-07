@@ -16,7 +16,7 @@ public class RolService implements IRolService {
 
     @Override
     public Set<Rol> getRolesByNombres(Set<String> nombresRol) {
-        Set<Rol> roles = rolRepository.findByNombreRol(nombresRol);
+        Set<Rol> roles = rolRepository.findByNombreRolIn(nombresRol);
 
         if (roles.isEmpty() && !nombresRol.isEmpty()) {
             throw new RolNotFoundException("Ninguno de los roles fue encontrado");
